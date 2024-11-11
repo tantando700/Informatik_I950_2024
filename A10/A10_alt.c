@@ -26,14 +26,11 @@ int main() {
     }
 
     int i = 1;
+    // Betrag hier auf 100 gesetzt weil "while(Betrag > schranke) bei Betrag = 0 dazu führen würde nicht in den loop reinzugehen
+    // theoretisch besser: do { ... } while(Betrag > schranke) dann ist Anfangswert von Betrag egal
+    double Betrag = 100;
 
-    // while(1) ---> "1" == TRUE
-    // loop wird unendlich lang laufen da Bedingung while(TRUE) immer wahr ist
-    // nur "break" kann aus dem loop ausbrechen
-    // theoretisch geht auch:
-    // while("Betrag" > schranke) --> solange "Betrag" größer als <schranke> 
-    // siehe A10_alt.c
-    while(1){
+    while(Betrag > schranke){
         
         // Vorzeichenteil
         double vorz = pow(-1, i - 1);
@@ -47,12 +44,10 @@ int main() {
 
         sum += summand;
 
-        // if("Betrag" < schranke)
-        // "Betrag" = ((summand < 0) ? (-1 * summand) : (summand)) => google "ternary operator in C" -> ternary operator ist das gleiche wie "if" operation nur kürzer geschrieben
-        // vereinfacht kann man auch seperat "Betrag" ausrechnen 
-        if( ((summand < 0) ? (-1 * summand) : (summand)) < schranke) {
-            // aus while loop rausbrechen
-            break;
+        Betrag = summand;
+        // Wenn Betrag negativ dann positiv machen (* -1)
+        if(Betrag < 0) {
+            Betrag = Betrag * -1;
         }
 
         i++;
