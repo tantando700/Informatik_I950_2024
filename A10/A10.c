@@ -27,7 +27,7 @@ int main() {
 
     int i = 1;
 
-    // while(1) => "1" == TRUE
+    // while(1) ---> "1" == TRUE
     // loop wird unendlich lang laufen da Bedingung while(TRUE) immer wahr ist
     // nur "break" kann aus dem loop ausbrechen
     while(1){

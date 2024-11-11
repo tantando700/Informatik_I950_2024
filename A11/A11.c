@@ -10,8 +10,8 @@
 
 // return Wert: - irgendein Datentyp (int, float, double, ...)
 //              - an irgendeinem Punkt der Funktion muss eine "return" operation irgendwas zurückgeben dabei muss der Datentyp übereinstimmen sein 
-// z.B. return 1 -> gibt "1" aus der Funktion zurück -> "1" ist vom Datentyp "int" -> FUNKTION => int <name_der_Funktion>(<Parameter>)  
-// ungültig wäre: FUNKTION => int <name_der_Funktion>(<Parameter>) {
+// z.B. return 1 --> gibt "1" aus der Funktion zurück --> "1" ist vom Datentyp "int" --> FUNKTION --> int <name_der_Funktion>(<Parameter>)  
+// ungültig wäre: FUNKTION --> int <name_der_Funktion>(<Parameter>) {
 //                              return 1.23     
 //                            }
 // da "1.23" vom Datentyp "float" bzw "double" ist
