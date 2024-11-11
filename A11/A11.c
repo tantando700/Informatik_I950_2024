@@ -4,17 +4,29 @@
 // A11
 
 // Funktion
-double expo(int n) {
+// rekursive Funktionen sind Funktionen welche sich selber aufrufen
+// expo ruft sich in Fall 2 und 3 selber auf
+int expo(int n) {
 
-    if(n == 1) {
-        return n;
-    } else if(n > 0 && n % 2 == 0) {
-        return pow(expo(n / 2), 2);
-    } else if(n > 0) {
-        return 2 * pow(expo((n-1) / 2), 2);
-    } else {
-        return 1337;
-    }
+    // Fall 1: n == 0
+    if(n == 0) {
+        return 1;
+    } 
+    // Fall 2: n > 0 und geradzahlig
+    // n wird hier immer größer oder gleich null sein da Bedingung in 1. Paragraph der Aufgabe 
+    // n >= 0 also keine Bedingung n > 0 notwendig
+    // "%" ist "modulo" operator. "Rest" von einer Division. Mit n % 2 kann man geradzahligkeit bestimmen
+    // z.B. 8 Rest 2 == 0 ; 7 Rest 2 == 1 ; 11 Rest 3 == 2
+    //      8 % 2 == 0; 7 % 1 == 1; 11 % 3 == 2 usw. 
+    else if(n % 2 == 0) {
+        int potenz = expo(n / 2);
+        return potenz * potenz;
+    } 
+    // Fall 3: n > 0 und ungerade
+    else {
+        int potenz = expo((n-1) / 2);
+        return 2 * potenz * potenz;
+    } 
 
     
 }
@@ -26,10 +38,10 @@ int main() {
     printf("Eingabe für n: ");
     rc = scanf("%d", &n);
 
-    double mein_ergebnis = expo(n);
+    int mein_ergebnis = expo(n);
 
-    printf("Ergebnis 2^n: %.4lf\n", mein_ergebnis);
-    printf("Test: %.4lf\n", pow(2, n));
+    printf("Ergebnis 2^n: %d\n", mein_ergebnis);
+    printf("Test: %.2lf\n", pow(2, n));
 
     return 0;
 }
